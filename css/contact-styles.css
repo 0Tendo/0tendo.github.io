@@ -1,0 +1,52 @@
+
+.form{
+    display: grid;
+    grid-template-rows: 130px 35px 100px 100px 100px 150px;
+    grid-template-columns: 1fr;
+    justify-content: center;
+    text-align: center;
+    max-width: 500px;
+    margin: 0 auto;
+    margin-top: 200px;
+    background-color: rgb(90, 107, 104);
+    border-width: 3px;
+    border-radius: 7px;
+    border-style:dotted;
+    border-color:#967a41;
+    margin-bottom: 200px;
+}
+
+h1{
+    font-size: 4rem;
+    margin-bottom: 20px;
+} 
+
+.box-2{
+    display: flex;
+    justify-content: center;
+    align-items: top;
+    text-align: top;
+}
+
+.box-2 > .quick{
+    margin: 5px;
+}
+.box-2 > .quick:hover{
+    background-color: #967a41;
+}
+
+.box-4{
+    font-size: 2.5rem;
+}
+
+.message{
+    margin-top: 30px;
+    width: 400px;
+    height: 100px;
+}
+
+
+.box-2 > div > a {
+    width: 60px;
+    max-height: 60px;
+}
