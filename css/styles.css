@@ -14,7 +14,7 @@ body {
     align-content: center;
     top: 0; 
     width: 100%; 
-    overflow: hidden;
+    overflow:hidden;
     background-color: rgb(90, 107, 104);
     position: fixed; 
     border-width: 3px 0px 3px 0px;
@@ -163,48 +163,48 @@ body {
     color:#e6bc6a
 }
 
-.disp1{
+.navig .disp1{
     grid-area: "disp1";
 }
 
-.disp2{
+.navig .disp2{
     grid-area: "disp2";
 }
 
-.disp3{
+.navig .disp3{
     grid-area: "disp3";
 }
 
-.disp4{
+.navig .disp4{
     grid-area: "disp4";
 }
 
-.quick1{
+.navig .quick1{
     grid-area: "quick1";
 }
 
-.quick2{
+.navig .quick2{
     grid-area: "quick2";
 }
 
-.quick3{
+.navig .quick3{
     grid-area: "quick3";
 }
 
-.quick4{
+.navig .quick4{
     grid-area: "quick4";
 }
 
-.empty1{
+.navig .empty1{
     grid-area: "empty1";
 }
-.empty2{
+.navig .empty2{
     grid-area: "empty2";
 }
-.empty3{
+.navig .empty3{
     grid-area: "empty3";
 }
-.empty4{
+.navig .empty4{
     grid-area: "empty4";
 }
 
@@ -230,10 +230,11 @@ body {
 
 @media (max-width: 414px){
     .navig{
-        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
         grid-template-rows: 1fr 1fr;
         grid-template-areas: 
-        "empty1 empty2 disp1 disp2 disp3 disp4 empty3 empty4"
+        "disp1 disp1 disp2 disp2 disp3 disp3 disp4 disp4"
         "empty1 empty2 quick1 quick2 quick3 quick4 empty3 empty4";
     }
 

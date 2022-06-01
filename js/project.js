@@ -1,32 +1,16 @@
-// let gamebox = document.querySelector('gamebox');
-// let pagebox = docuemnt.querySelector('pagebox');
-// let colors = document.querySelector('colors')
-
-// function handleSubmit(event) {
-//   console.log("********* Form Submission *********")
-//   console.log("Username:", form.name.value);
-//   console.log("Email:", form.email.value);
-//   console.log("Newsletter:", form.signup.value);
-//   console.log("Date:", form.date.value);
-//   event.preventDefault();
-// }
-
-
 $(document).ready(function (){
-  // $('pagebox')
-  // .css({
-  //   display: 'grid',
-  //   gridTemplateRows: '1fr 1fr',
-  //   gridTemplateColumns: '1fr',
-  //   maxWidth: '1400px',
-  //   maxHeight: '1400px',
-  // })
-  for(let i = 0; i < 10000; i++){
+  for(let i = 0; i < 5000; i++){
     $('.pagebox')
     .css({
+      maxWidth: '400px',
+      maxHeight: '800px',
       display: 'grid',
+      margin: '0 auto',
+      marginTop: '200',
+      padding: '0',
+      justifyContent: 'center',
       backgroundColor: 'rgb(200, 155, 100)',
-      gridTemplateColumns: 'repeat(100, 1fr)',
+      gridTemplateColumns: 'repeat(50, 1fr)',
       gridTempalteRows: 'repeat(100, 1fr)'
     })
     .append(
