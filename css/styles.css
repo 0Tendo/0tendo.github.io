@@ -163,6 +163,51 @@ body {
     color:#e6bc6a
 }
 
+.disp1{
+    grid-area: "disp1";
+}
+
+.disp2{
+    grid-area: "disp2";
+}
+
+.disp3{
+    grid-area: "disp3";
+}
+
+.disp4{
+    grid-area: "disp4";
+}
+
+.quick1{
+    grid-area: "quick1";
+}
+
+.quick2{
+    grid-area: "quick2";
+}
+
+.quick3{
+    grid-area: "quick3";
+}
+
+.quick4{
+    grid-area: "quick4";
+}
+
+.empty1{
+    grid-area: "empty1";
+}
+.empty2{
+    grid-area: "empty2";
+}
+.empty3{
+    grid-area: "empty3";
+}
+.empty4{
+    grid-area: "empty4";
+}
+
 @media (max-width: 1400px){
   .navig{
     grid-template-columns: 0px 2fr 2fr 2fr 2fr 1fr 1fr 30px 30px 30px 30px 1fr;
@@ -185,8 +230,11 @@ body {
 
 @media (max-width: 414px){
     .navig{
-        grid-template-columns: 0px 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
         grid-template-rows: 1fr 1fr;
+        grid-template-areas: 
+        "empty1 empty2 disp1 disp2 disp3 disp4 empty3 empty4"
+        "empty1 empty2 quick1 quick2 quick3 quick4 empty3 empty4";
     }
 
     

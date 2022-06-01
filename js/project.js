@@ -21,11 +21,13 @@ $(document).ready(function (){
   //   maxWidth: '1400px',
   //   maxHeight: '1400px',
   // })
-  for(let i = 0; i < 200; i++){
+  for(let i = 0; i < 10000; i++){
     $('.pagebox')
     .css({
-      display: 'inline-block',
-      backgroundColor: 'rgb(200, 155, 100)'
+      display: 'grid',
+      backgroundColor: 'rgb(200, 155, 100)',
+      gridTemplateColumns: 'repeat(100, 1fr)',
+      gridTempalteRows: 'repeat(100, 1fr)'
     })
     .append(
       $('<div>')
@@ -35,7 +37,7 @@ $(document).ready(function (){
       .css({
         width: '.5em',
         height: '.5em',
-        backgroundColor: 'rgb(0, 125, 200)',
+        backgroundColor: 'white',
       })
       .data({
         item: i,
@@ -49,7 +51,7 @@ $(document).ready(function (){
         });
       })
       .on('mouseout', function(){
-        console.log('left', $(this).date('item'));
+        console.log('left', $(this).data('item'));
       })
     )
 
