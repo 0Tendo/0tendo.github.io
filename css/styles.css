@@ -236,6 +236,7 @@ body {
         grid-template-areas: 
         "empty1 disp1 disp2 disp3 disp4 empty2"
         "empty3 quick1 quick2 quick3 quick4 empty4";
+        row-gap: 0;
     }
 
     .block-3 > ul{
@@ -243,7 +244,7 @@ body {
     }
 
     body {
-        margin-top: 58px;
+        margin-top: 54px;
 
     }
 
