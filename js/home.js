@@ -17,3 +17,6 @@ $(function() {
       $('.bar').css('color', 'black');
     });
   });
+
+
+  

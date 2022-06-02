@@ -1,6 +1,6 @@
 body {
     margin: 0;
-    margin-top: 35px;
+    margin-top: 33px;
     background-color: #000000;
 }
   
@@ -9,9 +9,11 @@ body {
     display: grid;
     gap: 5px;
     grid-template-columns: 3fr 2fr 2fr 2fr 2fr 3fr 3fr 30px 30px 30px 30px 200px;
+    grid-template-rows: 1fr;
+    grid-template-areas: 
+    "empty1 disp1 disp2 disp3 disp4 empty2 empty3 quick1 quick2 quick3 quick4 empty4";
     justify-content: center;
     align-items: center;
-    align-content: center;
     top: 0; 
     width: 100%; 
     overflow:hidden;
@@ -19,7 +21,6 @@ body {
     position: fixed; 
     border-width: 3px 0px 3px 0px;
     border-style:solid;
-    /* border-bottom-style:dotted; */
     border-color:#967a41;
     
 }
@@ -27,8 +28,6 @@ body {
   
   /* Nav bar links */
 .navig a {
-    float: left;
-    display: block;
     color: black;
     text-align: center;
     font-weight: bold;
@@ -41,8 +40,6 @@ body {
     max-width: 100px;
     justify-self: right;
   }
-
-
   
 .navig a:hover {
     background: #967a41;
@@ -53,8 +50,8 @@ body {
 /* sections */
 .boxes {
     display: grid;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
-    grid-template-columns: 1fr;
+    /* grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr; */
     justify-content: center;
     text-align: center;
     align-items: start;
@@ -67,15 +64,14 @@ body {
 .block {
     color: white;
     text-align: center;
-    overflow: visible;
+    overflow: hidden;
     margin: 0;
     padding: 0;
     
 }
 
-
 .block > p {
-    font-size: 2rem;
+    font-size: 1.8rem;
     text-align: center;
 }
 
@@ -99,7 +95,7 @@ body {
 }
 
 .block > .header2{
-    font-size: 2rem;
+    font-size: 1.8rem;
 }
 
 .block-3 > .lastsent{
@@ -226,6 +222,9 @@ body {
     .block-2{
         overflow: hidden;
     }
+    .image{
+        max-width: 900px;
+    }
 }
 
 @media (max-width: 414px){
@@ -234,17 +233,43 @@ body {
         grid-template-columns: repeat(6, 1fr);
         grid-template-rows: 1fr 1fr;
         grid-template-areas: 
-        "disp1 disp1 disp2 disp2 disp3 disp3 disp4 disp4"
-        "empty1 empty2 quick1 quick2 quick3 quick4 empty3 empty4";
+        "empty1 disp1 disp2 disp3 disp4 empty2"
+        "empty3 quick1 quick2 quick3 quick4 empty4";
     }
 
-    
+    body {
+        margin-top: 65px;
+
+    }
+
+    .image{
+        max-width: 400px;
+    }
+
+    .navig > .quick4{
+        justify-self: left;
+    }
+
+    .navig > .quick2{
+        justify-self: center;
+    }
+
+    .navig > .quick3{
+        justify-self: center;
+    }
 
     .navig .disp4 {
         margin-right: 10px;
       }
 
+    .block > .header2{
+        font-size: 1.2rem;
+    }
+    .block > p {
+        font-size: 1.2rem;
+    }
+
+    .block > .header1{
+        font-size: 2.3rem;
+    }
 }
-
-
-
