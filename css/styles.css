@@ -237,6 +237,10 @@ body {
         "empty3 quick1 quick2 quick3 quick4 empty4";
     }
 
+    .block-3 > ul{
+        flex-wrap:wrap
+    }
+
     body {
         margin-top: 65px;
 
