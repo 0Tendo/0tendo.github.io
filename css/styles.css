@@ -231,11 +231,11 @@ body {
 @media (max-width: 414px){
     .navig{
         display: grid;
-        grid-template-columns: repeat(6, 1fr);
-        grid-template-rows: 1fr 1fr;
+        grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr repeat(6, 0px);
+        grid-template-rows: 1fr;
         grid-template-areas: 
-        "empty1 disp1 disp2 disp3 disp4 empty2"
-        "empty3 quick1 quick2 quick3 quick4 empty4";
+        "empty1 disp1 disp2 disp3 disp4 empty2";
+        /* "empty3 quick1 quick2 quick3 quick4 empty4"; */
         row-gap: 0;
     }
 
@@ -243,25 +243,29 @@ body {
         flex-wrap:wrap
     }
 
-    body {
-        margin-top: 54px;
-
-    }
-
     .image{
         max-width: 400px;
     }
-
+    .navig > .quick1{
+        visibility: hidden;
+        max-width: 0px;
+    }
     .navig > .quick4{
         justify-self: left;
+        visibility: hidden;
+        max-width: 0px;
     }
 
     .navig > .quick2{
         justify-self: center;
+        visibility: hidden;
+        max-width: 0px;
     }
 
     .navig > .quick3{
         justify-self: center;
+        visibility: hidden;
+        max-width: 0px;
     }
 
     .navig .disp4 {
