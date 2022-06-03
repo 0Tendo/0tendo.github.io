@@ -205,6 +205,13 @@ body {
     grid-area: "empty4";
 }
 
+#loader {
+    background: url('../images/loading.gif') no-repeat center center;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
 @media (max-width: 1400px){
   .navig{
     grid-template-columns: 0px 2fr 2fr 2fr 2fr 1fr 1fr 30px 30px 30px 30px 1fr;
