@@ -252,6 +252,18 @@ body {
     padding: 0;
 }
 
+.result {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.result {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    width: 100%;
+    max-width: 100%;
+}
+
 @media (max-width: 1400px){
   .navig{
     grid-template-columns: 0px 2fr 2fr 2fr 2fr 1fr 1fr 30px 30px 30px 30px 1fr;

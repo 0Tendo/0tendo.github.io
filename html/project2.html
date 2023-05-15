@@ -6,6 +6,7 @@
     <title>Ethan's Portfolio</title>
     <link rel="stylesheet" href="../css/styles.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/decimal.js/10.2.1/decimal.min.js"></script>
     <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
     <script defer src="../js/project2.js"></script>
   </head>
@@ -33,21 +34,28 @@
           </div>
           <br>
           <div class="btn">
-            <input type="number" id="iterations1" placeholder="Number of iterations">
+            <input type="number" id="iterations1" placeholder="# of iterations">
             <button type="button" name="calculate1" id="calculate1">Calculate Pi (Leibniz)</button>
           </div>
-          <div style="color:white" id="result1"></div>
+          <div style="color:white" class="result" id="result1"></div>
           <br>
           <a style="color:white" href="https://en.wikipedia.org/wiki/Leibniz_formula_for_%CF%80">Pi calculator using Leibniz formula for Pi</a>
           <br><br><br><br>
           <div class="btn">
-            <input type="number" id="iterations2" placeholder="Number of iterations">
+            <input type="number" id="iterations2" placeholder="# of iterations">
             <button type="button" name="calculate2" id="calculate2">Calculate Pi (Nilakantha)</button>
           </div>
-          <div style="color:white" id="result2"></div>
+          <div style="color:white" class="result" id="result2"></div>
           <br>
           <a style="color:white" href="https://en.wikipedia.org/wiki/Pi#Infinite_series">Pi calculator using Nilakantha series for Pi</a>
-          
+          <br><br><br><br>
+          <div class="btn">
+            <input type="number" id="iterations3" placeholder="# of iterations (max 50)">
+            <button type="button" name="calculate3" id="calculate3">Calculate Pi (Chudnovsky)</button>
+        </div>
+        <div style="color:white" class="result" id="result3"></div>
+        <br>
+        <a style="color:white" href="https://en.wikipedia.org/wiki/Chudnovsky_algorithm">Pi calculator using Chudnovsky algorithm for Pi</a>
           
     </main>
   </body>
