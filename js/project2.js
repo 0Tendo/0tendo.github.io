@@ -1,5 +1,5 @@
 $(document).ready(function (){
-  $('#calculate').on('click', function(){
+  $('#calculate1').on('click', function(){
       let pi = 4;
       let i = 0;
       let intervalId = setInterval(function() {
@@ -11,13 +11,29 @@ $(document).ready(function (){
             pi += (4/denom);
         }
         console.log(pi);
-        $('#result').text(pi);
+        $('#result1').text(pi);
         i++;
-        if(i >= $('#iterations').val()) {
+        if(i >= $('#iterations1').val()) {
           clearInterval(intervalId);
         }
       }, 100);
   });
+  
+  $('#calculate2').on('click', function(){
+    let pi = 3;
+    let i = 0;
+    let intervalId = setInterval(function() {
+        let sign = (i % 2 === 0) ? 1 : -1;
+        let denom = 2 * i + 2;
+        pi += sign * 4 / (denom * (denom + 1) * (denom + 2));
+        console.log(pi);
+        $('#result2').text(pi);
+        i++;
+        if(i >= $('#iterations2').val()) {
+            clearInterval(intervalId);
+        }
+    }, 100);
+});
 });
 
 function hideLoader() {
