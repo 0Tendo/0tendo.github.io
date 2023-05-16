@@ -38,14 +38,25 @@ $(document).ready(function (){
 
 $('#calculate3').on('click', function(){
   let iterations = $('#iterations3').val();
-  
-  if(iterations > 50) {
-    alert("Maximum iterations for the Chudnovsky formula is 50.");
-    return;
+
+  if(iterations > 100) {
+      alert("Maximum iterations for the Chudnovsky formula is 100.");
+      return;
   }
-  
-  let pi = calculatePiChudnovsky(iterations);
-  $('#result3').text(pi.toString());
+
+  let sum = new Decimal(0);
+  let i = 0;
+
+  let intervalId = setInterval(function() {
+      if(i < iterations) {
+          sum = sum.plus(calculatePiChudnovskySingleIteration(i));
+          let pi = new Decimal(426880).times(new Decimal(10005).sqrt()).div(sum); // Calculate pi here
+          $('#result3').text(pi.toString());
+          i++;
+      } else {
+          clearInterval(intervalId);
+      }
+  }, 100);
 });
 
 function factorial(n) {
@@ -56,29 +67,22 @@ function factorial(n) {
   return fact;
 }
 
-function calculatePiChudnovsky(iterations) {
-  let pi = new Decimal(0);
-  let twelve = new Decimal(12);
-  let one = new Decimal(1);
+function calculatePiChudnovskySingleIteration(k) {
   let minusOne = new Decimal(-1);
-  let two = new Decimal(2);
-  let three = new Decimal(3);
-  let six = new Decimal(6);
-  let constant = new Decimal(13591409);
+  let sixK = new Decimal(6).times(k);
+  let threeK = new Decimal(3).times(k);
   let multiplier = new Decimal(545140134);
-  let divisor = new Decimal(640320);
+  let constant = new Decimal(13591409);
+  let factor = new Decimal(640320).toPower(3);
 
-  for (let k = 0; k < iterations; k++) {
-      let firstTerm = factorial(6 * k).times(multiplier.times(k).plus(constant));
-      let secondTerm = factorial(3 * k).times(factorial(k).toPower(3)).times(divisor.toPower(3 * k + 1.5)); // Notice the 3*k+1.5 in the toPower()
-      let thirdTerm = minusOne.toPower(k);
-      pi = pi.plus(firstTerm.div(secondTerm).times(thirdTerm));
-  }
+  let numerator = factorial(sixK).times(constant.plus(multiplier.times(k)));
+  let denominator = factorial(threeK).times(factorial(k).toPower(3)).times(factor.toPower(k));
+  let sum = minusOne.toPower(k).times(numerator).div(denominator);
 
-  pi = one.div(pi.times(twelve));
-  return pi;
+  return sum;
 }
 });
+
 
 
 function hideLoader() {
