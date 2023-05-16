@@ -1,5 +1,5 @@
 $(document).ready(function (){
-  Decimal.set({ precision: 600 });
+  Decimal.set({ precision: 5000 });
   $('#calculate1').on('click', function(){
       let pi = 4;
       let i = 0;
@@ -38,11 +38,6 @@ $(document).ready(function (){
 
 $('#calculate3').on('click', function(){
   let iterations = $('#iterations3').val();
-
-  if(iterations > 100) {
-      alert("Maximum iterations for the Chudnovsky formula is 100.");
-      return;
-  }
 
   let sum = new Decimal(0);
   let i = 0;
