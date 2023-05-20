@@ -252,6 +252,45 @@ body {
     padding: 0;
 }
 
+.pagebox {
+    margin-top: 50px;
+    margin-left: 10px; 
+}
+
+  
+  .canvas-size-selection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    color: white;
+    padding: 20px;
+    margin-right: 0px; /* increase the spacing between the selection bar and the canvas */
+}
+  
+  
+  .canvas-size-option {
+    background-color: #d3a445; /* Adjust this to your preferred background color */
+    color: white; /* Adjust this to your preferred text color */
+    border: none; /* Adjust border properties as desired */
+    padding: 10px 24px; /* Adjust padding as desired */
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px; /* Adjust font-size as desired */
+    margin: 2px 0px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    font-family: 'Lato', sans-serif; /* Adjust to your preferred font */
+}
+
+  .canvas-size-option:hover {
+    background-color: white; /* Adjust to your preferred hover background color */
+    color: black; /* Adjust to your preferred hover text color */
+}
+
+
 .result {
     word-wrap: break-word;
     overflow-wrap: break-word;

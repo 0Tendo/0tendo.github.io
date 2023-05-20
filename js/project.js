@@ -11,7 +11,21 @@ $color9  = 'gray',
 $colorx = 'pink',
 
 $(document).ready(function (){
-  for(let i = 0; i < 5000; i++){
+  let mouseIsDown = false; // Add this state variable
+
+  $('.canvas-size-option').click(function() {
+    const canvasSize = $(this).data('size');
+    const numColumns = Math.sqrt(canvasSize);
+
+    
+    // Clear the previous canvas
+    $('.pagebox').empty();
+
+    // Clear the old color selection boxes
+    $('.input').empty();
+    
+    for(let i = 0; i < canvasSize; i++){
+
     $('.pagebox')
     .css({
       maxWidth: '400px',
@@ -44,6 +58,13 @@ $(document).ready(function (){
         console.log('clicked', $(this).data('item'));
       })
       .on('mouseover', function(){
+        if(mouseIsDown) {
+          $(this).css({
+            backgroundColor: $colorx,
+          });
+        }
+      })
+      .on('mousedown', function(){
         $(this).css({
           backgroundColor: $colorx,
         });
@@ -52,6 +73,7 @@ $(document).ready(function (){
         console.log('left', $(this).data('item'));
       })
     )
+    
     
 
   $('#input')
@@ -67,6 +89,14 @@ $(document).ready(function (){
     console.log('mouse over event')
   })
   }
+
+  $(document).mousedown(function() {
+    mouseIsDown = true;
+  });
+
+  $(document).mouseup(function() {
+    mouseIsDown = false;
+  });
 
   for(let i = 0; i < 10; i++){
     $('.input')
@@ -194,18 +224,55 @@ $(document).ready(function (){
     margin: '0 auto',
     padding: '0',
     justifyContent: 'center',
-    backgroundColor: 'pink',
+    backgroundColor: 'black',
   })
   $('.btn #reset')
   .css({
-    width: '100px',
-    height: '25px',
-    visibility: 'visible'
+    visibility: 'visible',
+    backgroundColor: '#d3a445', /* Adjust this to your preferred background color */
+    color: 'white', /* Adjust this to your preferred text color */
+    border: 'none', /* Adjust border properties as desired */
+    padding: '10px 24px', /* Adjust padding as desired */
+    textAlign: 'center',
+    textDecoration: 'none',
+    display: 'inline-block',
+    fontSize: '16px', /* Adjust font-size as desired */
+    margin: '4px 0px',
+    marginLeft: '8px',
+    transitionDuration: '0.4s',
+    cursor: 'pointer',
+    justifyContent: 'center',
+    alignItems: 'center',
+    fontFamily: "'Lato', sans-serif", /* Adjust to your preferred font */
+
   })
   .on('click', function(){
     $('.gabox').css({backgroundColor: 'white'})
   })
+
+  $('#reset') // Use only the ID
+  .hover(
+    function() {
+      // Mouseover event
+      $(this).css({
+        backgroundColor: 'white',
+        color: 'black',
+      });
+    },
+    function() {
+      // Mouseout event
+      $(this).css({
+        backgroundColor: '#d3a445', // change back to original color
+        color: 'white', // change back to original color
+      });
+    }
+  );
+  
+
 })
+
+});
+
 
 
 
