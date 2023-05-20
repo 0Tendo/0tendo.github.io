@@ -2,6 +2,8 @@ body {
     margin: 0;
     margin-top: 30px;
     background-color: #000000;
+    background-image: url('../images/background/5.png'); /* replace with the path to your image */
+    background-repeat: repeat; /* this will tile the image */
 }
   
   /* navigation bar  */
@@ -22,9 +24,21 @@ body {
     border-width: 3px 0px 3px 0px;
     border-style:solid;
     border-color:#967a41;
+    background-image: url('../images/background/1.png'); /* replace with the path to your image */
+    background-repeat: repeat; /* this will tile the image */
+    text-shadow: 1px 1px 2px rgb(58, 58, 58), 0 0 1em rgb(77, 77, 77), 0 0 0.2em rgb(122, 122, 122);
     
 }
 
+.navig:hover {
+    background-image: url('../images/background/background-gif.gif'); /* replace with the path to your image */
+    background-repeat: repeat; /* this will tile the image */
+}
+
+.quick{
+    -webkit-filter: drop-shadow(2px 2px 2px #222);
+    filter: drop-shadow(2px 2px 2px #222);    
+}
   
   /* Nav bar links */
 .navig a {
@@ -39,10 +53,12 @@ body {
     border-color: #000000;
     max-width: 100px;
     justify-self: right;
+    font-family: 'Lato', sans-serif;
   }
   
 .navig a:hover {
     background: #967a41;
+    opacity: .7;
     color: black;
 }
   
@@ -61,12 +77,18 @@ body {
 
 }
 
+.proj:hover{
+background-image: url('../images/background/background-gif5.gif'); /* replace with the path to your image */
+background-repeat: repeat; /* this will tile the image */
+}
+
 .block {
     color: white;
     text-align: center;
     overflow: hidden;
     margin: 0;
     padding: 0;
+    font-family: 'Lato', sans-serif;
     
 }
 
@@ -122,6 +144,7 @@ body {
 
 .name:hover{
     color: #d3a445;
+
 }
 
 .image {
