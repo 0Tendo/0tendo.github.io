@@ -280,6 +280,7 @@ body {
     display: inline-block;
     font-size: 16px; /* Adjust font-size as desired */
     margin: 2px 0px;
+    margin-right: 3px;
     transition-duration: 0.4s;
     cursor: pointer;
     font-family: 'Lato', sans-serif; /* Adjust to your preferred font */
@@ -290,6 +291,13 @@ body {
     color: black; /* Adjust to your preferred hover text color */
 }
 
+.project-title {
+    color: white; /* changes color of text to white */
+    text-align: center; /* centers the text */
+    font-size: 2em; /* adjust as per your need for sizing the font */
+    margin-top: 40px; /* adjust as per your need for top margin */
+    margin-bottom: 20px; /* adjust as per your need for bottom margin */
+  }
 
 .result {
     word-wrap: break-word;

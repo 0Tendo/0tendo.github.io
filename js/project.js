@@ -238,7 +238,7 @@ $(document).ready(function (){
     display: 'inline-block',
     fontSize: '16px', /* Adjust font-size as desired */
     margin: '4px 0px',
-    marginLeft: '8px',
+    marginLeft: '5px',
     transitionDuration: '0.4s',
     cursor: 'pointer',
     justifyContent: 'center',
