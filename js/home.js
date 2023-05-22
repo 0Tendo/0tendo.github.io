@@ -28,7 +28,8 @@ $(function() {
         $('<p>').text('2019-Present').css({fontSize: '18px', color: 'black'}),
         $('<p>').text('Computer Science (B.S)').css({fontSize: '18px', color: '#C0C0C0'}),
         $('<p>').text('Expected Graduation: December 2023').css({fontSize: '18px', color: '#C0C0C0'}),
-        $('<p>').html('AI <span class="bar">|</span> Machine Learning <span class="bar">|</span>Networking <span class="bar">|</span> SQL').css({fontSize: '18px', color: '#C0C0C0'})
+        $('<p>').html('AI <span class="bar">|</span> Machine Learning <span class="bar">|</span> Networking <span class="bar">|</span> Databases').css({fontSize: '18px', color: '#C0C0C0'}),
+        $('<p>').html('Python <span class="bar">|</span> C/C++ <span class="bar">|</span> HTML/CSS/JS <span class="bar">|</span> Typescipt<span class="bar">|</span> SQL <span class="bar">|</span> VBA <span class="bar">|</span> Latex').css({fontSize: '18px', color: '#C0C0C0'})
     );
 
     $('#lam').click(function() {
@@ -38,7 +39,7 @@ $(function() {
         $('<p>').text('Lead Engineering Technician').css({fontSize: '18px', color: '#C0C0C0'}),
         $('<p>').text('Department: Pilot Manufactuing').css({fontSize: '18px', color: '#C0C0C0'}),
         $('<p>').html('Quality Inspections <span class="bar">|</span> Electrical & Mechanical Troubleshooting').css({fontSize: '18px', color: '#C0C0C0'}),
-        $('<p>').html('Communication <span class="bar">|</span> Team Management <span class="bar">|</span> Excel <span class="bar">|</span> SQL <span class="bar">|</span> Root Cause Analysis ').css({fontSize: '18px', color: '#C0C0C0'})
+        $('<p>').html('Communication <span class="bar">|</span> Team Management <span class="bar">|</span> Excel <span class="bar">|</span> Quickbase <span class="bar">|</span> Root Cause Analysis ').css({fontSize: '18px', color: '#C0C0C0'})
     );
 
     $('#navy').click(function() {
