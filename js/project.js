@@ -35,7 +35,7 @@ $(document).ready(function (){
       marginTop: '200',
       padding: '0',
       justifyContent: 'center',
-      backgroundColor: 'rgb(200, 155, 100)',
+      backgroundColor: 'white',
       gridTemplateColumns: 'repeat(50, 1fr)',
       gridTempalteRows: 'repeat(100, 1fr)',
       borderStyle: 'solid',
@@ -224,7 +224,7 @@ $(document).ready(function (){
     margin: '0 auto',
     padding: '0',
     justifyContent: 'center',
-    backgroundColor: 'black',
+    //backgroundColor: 'black',
   })
   $('.btn #reset')
   .css({

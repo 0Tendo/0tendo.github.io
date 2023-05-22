@@ -8,6 +8,7 @@ $(function() {
   });
 
 
+  /*
   $(function() {
     $('#plang').hover(function() {
       $('.lang').css('color','#d3a445');
@@ -17,6 +18,7 @@ $(function() {
       $('.bar').css('color', 'black');
     });
   });
+  */
 
 
   $(function() {

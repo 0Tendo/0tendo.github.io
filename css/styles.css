@@ -139,7 +139,8 @@ background-repeat: repeat; /* this will tile the image */
 }
 
 .name{
-    color: #e6bc6a
+    color: #e6bc6a;
+    text-shadow: 1px 1px 2px rgb(58, 58, 58), 0 0 1em rgb(77, 77, 77), 0 0 0.2em rgb(122, 122, 122);
 }
 
 .name:hover{
@@ -164,7 +165,7 @@ background-repeat: repeat; /* this will tile the image */
 }
 .link:hover{
     text-decoration: none;
-    color: #e6bc6a
+    color:#d3a445;
 }
 
 .lang{
@@ -176,12 +177,10 @@ background-repeat: repeat; /* this will tile the image */
 }
 
 .lang:hover{
-    color: #e6bc6a
+    color: gray;
+    text-shadow: 1px 1px 2px rgb(58, 58, 58), 0 0 1em rgb(77, 77, 77), 0 0 0.2em rgb(122, 122, 122);
 }
 
-.plang:hover ~ .lang {
-    color:#e6bc6a
-}
 
 .navig .disp1{
     grid-area: "disp1";
@@ -286,7 +285,6 @@ background-repeat: repeat; /* this will tile the image */
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: black;
     color: white;
     padding: 20px;
     margin-right: 0px; /* increase the spacing between the selection bar and the canvas */
@@ -332,6 +330,11 @@ background-repeat: repeat; /* this will tile the image */
     overflow-wrap: break-word;
     width: 100%;
     max-width: 100%;
+}
+
+.contactlink{
+    color:#e6bc6a;
+    text-shadow: 1px 1px 2px rgb(58, 58, 58), 0 0 1em rgb(77, 77, 77), 0 0 0.2em rgb(122, 122, 122);
 }
 
 @media (max-width: 1400px){
@@ -411,4 +414,5 @@ background-repeat: repeat; /* this will tile the image */
     .block > .header1{
         font-size: 2.3rem;
     }
+
 }
