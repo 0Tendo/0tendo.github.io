@@ -92,6 +92,10 @@ background-repeat: repeat; /* this will tile the image */
     
 }
 
+ul {
+    padding-left: 0;
+}
+
 .block > p {
     font-size: 1.8rem;
     text-align: center;
