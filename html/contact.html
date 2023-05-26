@@ -26,33 +26,33 @@
         <div class="empty4"></div>
       </div>
 
-          <div class="form">
-            <h1 class ="box box-1">Contact Me</h1>
-            <div class="box box-2">
-              <a class ="quick" href="https://www.linkedin.com/in/esaftler/" target="blank"><img src="../images/icons/linkedin.png"></a>
-              <a class ="quick" href="https://github.com/0Tendo" target="blank"><img src="../images/icons/github.png"></a>
-              <a class ="quick" href="https://discord.gg/WHBwbXRuyB" target="blank"><img src="../images/icons/discord.png"></a>
-              <a class ="quick quick-4" href="mailto:esaftler@gmail.com" target="blank"><img src="../images/icons/envelope.png"></a>
-            </div>
-            <div class="box box-3"></div>
-            <div class="box box-4 innerbox">
-              <div>
+      <div class="form">
+        <h1 class="box box-1">Contact Me</h1>
+        <div class="box box-2">
+            <a class="quick" href="https://www.linkedin.com/in/esaftler/" target="blank"><img src="../images/icons/linkedin.png"></a>
+            <a class="quick" href="https://github.com/0Tendo" target="blank"><img src="../images/icons/github.png"></a>
+            <a class="quick" href="https://discord.gg/WHBwbXRuyB" target="blank"><img src="../images/icons/discord.png"></a>
+            <a class="quick quick-4" href="mailto:esaftler@gmail.com" target="blank"><img src="../images/icons/envelope.png"></a>
+        </div>
+        <div class="box box-3"></div>
+        <form action="/contact" method="POST" class="box box-4 innerbox">
+            <div>
                 <label> Name: </label>
                 <input class="input-label" type="text" name="name" maxlength="64">
-              </div>
-              <div>
+            </div>
+            <div>
                 <label> Email: </label>
                 <input class="input-label" type="email" name="email" maxlength="64">
-              </div>
-              <div>
-                <label> </label>
-                <textarea class=message name="message" value="message" placeholder="please leave me a message..." maxlength="4096"></textarea>
-                <!-- <input class="message" type="text" name="message"> -->
-              </div>
-              <div>
-                <input class="submt" type="submit" value="Submit">
-              </div>
             </div>
+            <div>
+                <label> Message: </label>
+                <textarea class="message" name="message" placeholder="please leave me a message..." maxlength="4096"></textarea>
+            </div>
+            <div>
+                <input class="submt" type="submit" value="Submit">
+            </div>
+        </form>
+    </div>
           </div>
     </main>
   </body>
