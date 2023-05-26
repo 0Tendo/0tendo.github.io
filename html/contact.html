@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/css/styles.css" />
     <link rel="stylesheet" href="/css/contact-styles.css" />
     <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+    <srcipt src="/js/contact.js"></script>
     <script defer src=""></script>
   </head>
   <body class="">
@@ -35,7 +36,7 @@
             <a class="quick quick-4" href="mailto:esaftler@gmail.com" target="blank"><img src="../images/icons/envelope.png"></a>
         </div>
         <div class="box box-3"></div>
-        <form action="/contact" method="POST" class="box box-4 innerbox">
+        <form id="contactForm" action="/contact" method="POST" class="box box-4 innerbox">
             <div>
                 <label> Name: </label>
                 <input class="input-label" type="text" name="name" maxlength="64">
@@ -46,7 +47,7 @@
             </div>
             <div>
                 <label> Message: </label>
-                <textarea class="message" name="message" placeholder="please leave me a message..." maxlength="4096"></textarea>
+                <textarea id="messageBox" class="message" name="message" placeholder="please leave me a message..." maxlength="4096"></textarea>
             </div>
             <div>
                 <input class="submt" type="submit" value="Submit">
