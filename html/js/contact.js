@@ -5,7 +5,10 @@ document.getElementById('contactForm').addEventListener('submit', function(evt){
 
     fetch('/contact', {
         method: 'POST',
-        body: formData
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: new URLSearchParams(formData)
     })
     .then(response => response.text())  // Get the text from the response
     .then(function(text) {
