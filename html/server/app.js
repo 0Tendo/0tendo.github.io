@@ -4,6 +4,7 @@ const fs = require('fs');
 const app = express();
 
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 app.post('/contact', (req, res) => {
     let name = req.body.name;
@@ -15,7 +16,7 @@ app.post('/contact', (req, res) => {
     let formatted_date = current_datetime.getFullYear() + "-" + (current_datetime.getMonth() + 1) + "-" + current_datetime.getDate() + " " + current_datetime.getHours() + ":" + current_datetime.getMinutes() + ":" + current_datetime.getSeconds()
 
     // Get IP address
-    let ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+    let ip = (req.headers['x-forwarded-for'] || '').split(',').pop().trim() || req.connection.remoteAddress;
 
     let logMessage = `Name: ${name}\nEmail: ${email}\nMessage: ${message}\nDate and Time: ${formatted_date}\nIP Address: ${ip}\n---\n`;
 
