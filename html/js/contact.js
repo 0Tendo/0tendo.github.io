@@ -1,4 +1,4 @@
-document.getElementById('contact-form').addEventListener('submit', function(evt){
+document.getElementById('contactForm').addEventListener('submit', function(evt){
     evt.preventDefault();
 
     let formData = new FormData(this);
