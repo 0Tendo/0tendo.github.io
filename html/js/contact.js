@@ -13,7 +13,7 @@ document.getElementById('contactForm').addEventListener('submit', function(event
 
         if (text === 'success') {
             // If the message was saved successfully, clear the message box and show a success message.
-            document.getElementById('messageBox').value = 'Your message has been submitted successfully!';
+            document.getElementById('messageBox').value = 'Success! Thanks for leaving me a message!';
         } else {
             // If there was an error, show the error message
             document.getElementById('messageBox').value = 'There was an error submitting your message. Please try again later.';
