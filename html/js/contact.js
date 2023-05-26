@@ -1,10 +1,11 @@
-document.getElementById('contactForm').addEventListener('submit', function(event) {
-    event.preventDefault();  // Stop the form from submitting normally
+document.getElementById('contact-form').addEventListener('submit', function(evt){
+    evt.preventDefault();
 
-    // Send the form data to the server
+    let formData = new FormData(this);
+
     fetch('/contact', {
         method: 'POST',
-        body: new FormData(event.target)  // This gets the data from the form
+        body: formData
     })
     .then(response => response.text())  // Get the text from the response
     .then(function(text) {
