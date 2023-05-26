@@ -16,7 +16,7 @@ document.getElementById('contactForm').addEventListener('submit', function(event
             document.getElementById('messageBox').value = 'Success! Thanks for leaving me a message!';
         } else {
             // If there was an error, show the error message
-            document.getElementById('messageBox').value = 'There was an error submitting your message. Please try again later.';
+            document.getElementById('messageBox').value = ':( There was an error submitting your message. Please try again later.';
         }
     });
 });
