@@ -29,7 +29,7 @@ $(function() {
         $('<p>').text('Computer Science (B.S)').css({fontSize: '18px', color: '#C0C0C0'}),
         $('<p>').text('Expected Graduation: December 2023').css({fontSize: '18px', color: '#C0C0C0'}),
         $('<p>').html('AI <span class="bar">|</span> Machine Learning <span class="bar">|</span> Networking <span class="bar">|</span> Databases').css({fontSize: '18px', color: '#C0C0C0'}),
-        $('<p>').html('Python <span class="bar">|</span> C/C++ <span class="bar">|</span> HTML/CSS/JS <span class="bar">|</span> Typescipt<span class="bar">|</span> SQL <span class="bar">|</span> VBA <span class="bar">|</span> Latex').css({fontSize: '18px', color: '#C0C0C0'})
+        $('<p>').html('Python <span class="bar">|</span> C/C++ <span class="bar">|</span> HTML/CSS/JS <span class="bar">|</span> Typescipt <span class="bar">|</span> SQL <span class="bar">|</span> VBA <span class="bar">|</span> Latex').css({fontSize: '18px', color: '#C0C0C0'})
     );
 
     $('#lam').click(function() {
