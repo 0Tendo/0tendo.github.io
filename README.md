@@ -4,7 +4,7 @@ My portfolio
 
 Webpage designed by myself to showcase some of my skills and projects.
 
-deployed at the following link: https://0tendo.github.io/html/home.html
+deployed at the following link: https://esaftler.com/
 
 
 Please check it out. Feel free to visit the links to my Linkedin, Github, Discord Server, or email me directly.
