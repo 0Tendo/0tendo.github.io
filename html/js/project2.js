@@ -1,4 +1,26 @@
+
+function generateColorLegend(backgroundColors) {
+  let legendHtml = '<div class="color-legend">';
+  backgroundColors.forEach((color, index) => {
+      legendHtml += `<div class="color-item" style="background-color: ${color};">${index}</div>`;
+  });
+  legendHtml += '</div>';
+  return legendHtml;
+}
+
 $(document).ready(function (){
+  let backgroundColors = [
+    'rgba(255, 99, 132, 0.8)', 'rgba(54, 162, 235, 0.8)',
+    'rgba(255, 206, 86, 0.8)', 'rgba(75, 192, 192, 0.8)',
+    'rgba(153, 102, 255, 0.8)', 'rgba(255, 159, 64, 0.8)',
+    'rgba(199, 199, 199, 0.8)', 'rgba(83, 102, 255, 0.8)',
+    'rgba(40, 159, 64, 0.8)', 'rgba(255,99,132,0.8)'
+  ];
+
+  // Call generateColorLegend function and insert the HTML
+  let colorLegendHtml = generateColorLegend(backgroundColors);
+  $('#colorLegend').html(colorLegendHtml);
+
   Decimal.set({ precision: 5000 });
   $('#calculate1').on('click', function(){
       let pi = 4;
@@ -36,22 +58,94 @@ $(document).ready(function (){
     }, 100);
 });
 
-$('#calculate3').on('click', function(){
-  let iterations = $('#iterations3').val();
+$(document).ready(function (){
+  let digitOccurrences = Array(10).fill(0);
 
-  let sum = new Decimal(0);
-  let i = 0;
-
-  let intervalId = setInterval(function() {
-      if(i < iterations) {
-          sum = sum.plus(calculatePiChudnovskySingleIteration(i));
-          let pi = new Decimal(426880).times(new Decimal(10005).sqrt()).div(sum); // Calculate pi here
-          $('#result3').text(pi.toString());
-          i++;
-      } else {
-          clearInterval(intervalId);
+  // Initialize the pie chart
+  let ctx = document.getElementById('piChart').getContext('2d');
+  let piChart = new Chart(ctx, {
+      type: 'pie',
+      data: {
+          labels: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'],
+          datasets: [{
+              label: 'Digit Occurrences',
+              data: digitOccurrences,
+              backgroundColor: [
+                  'rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)',
+                  'rgba(255, 206, 86, 0.2)', 'rgba(75, 192, 192, 0.2)',
+                  'rgba(153, 102, 255, 0.2)', 'rgba(255, 159, 64, 0.2)',
+                  'rgba(199, 199, 199, 0.2)', 'rgba(83, 102, 255, 0.2)',
+                  'rgba(40, 159, 64, 0.2)', 'rgba(255,99,132,0.2)'
+              ],
+              borderColor: [
+                  'rgba(255, 99, 132, 1)', 'rgba(54, 162, 235, 1)',
+                  'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)',
+                  'rgba(153, 102, 255, 1)', 'rgba(255, 159, 64, 1)',
+                  'rgba(199, 199, 199, 1)', 'rgba(83, 102, 255, 1)',
+                  'rgba(40, 159, 64, 1)', 'rgba(255,99,132,1)'
+              ],
+              borderWidth: 1
+          }]
+      },
+      options: {
+          responsive: true,
+          maintainAspectRatio: false,
       }
-  }, 100);
+  });
+
+  $('#calculate3').on('click', function(){
+      let iterations = $('#iterations3').val();
+      let sum = new Decimal(0);
+      let i = 0;
+      let previousPi = ""; // Store the previous pi value for comparison
+      let stabilityBuffer = []; // Initialize the stability buffer
+      digitOccurrences.fill(0); // Reset digit occurrences for a new calculation
+
+      let intervalId = setInterval(function() {
+        if(i < iterations) {
+            sum = sum.plus(calculatePiChudnovskySingleIteration(i));
+            let pi = new Decimal(426880).times(new Decimal(10005).sqrt()).div(sum);
+            let piString = pi.toString();
+    
+            // Update and generate HTML with stability check
+            let displayHtml = "";
+            for (let j = 0; j < piString.length; j++) {
+                if (stabilityBuffer[j] === undefined) {
+                    // Initialize buffer entry with counted flag
+                    stabilityBuffer[j] = {digit: piString[j], count: 1, counted: false};
+                } else if (stabilityBuffer[j].digit === piString[j]) {
+                    stabilityBuffer[j].count++; // Increment count if digit is unchanged
+                } else {
+                    // Reset if digit has changed and reinitialize counted flag
+                    stabilityBuffer[j] = {digit: piString[j], count: 1, counted: false};
+                }
+    
+                let colorStyle = '';
+                if (stabilityBuffer[j].count > 5 && !stabilityBuffer[j].counted) { // Threshold for stability
+                    let digit = parseInt(piString[j], 10);
+                    if (!isNaN(digit)) { // Ensure it's a digit
+                        colorStyle = ` style="color: ${backgroundColors[digit]};"`;
+                        if (!stabilityBuffer[j].counted) {
+                            digitOccurrences[digit]++;
+                            stabilityBuffer[j].counted = true; // Mark as counted to prevent recounting
+                        }
+                    }
+                }
+                displayHtml += `<span${colorStyle}>${piString[j]}</span>`;
+            }
+    
+            $('#result3').html(displayHtml);
+            // Update pie chart
+            piChart.data.datasets[0].data = digitOccurrences;
+            piChart.update();
+    
+            previousPi = piString; // Update the previous pi value for the next iteration
+            i++;
+        } else {
+            clearInterval(intervalId);
+        }
+    }, 100);
+  });
 });
 
 function factorial(n) {

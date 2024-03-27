@@ -442,3 +442,7 @@ html {
   scrollbar-width: thin;
   scrollbar-color: #967a41 black;
 }
+
+.stable-digit {
+    color: burlywood;
+}
