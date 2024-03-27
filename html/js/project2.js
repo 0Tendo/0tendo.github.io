@@ -108,50 +108,57 @@ $(document).ready(function (){
       digitOccurrences.fill(0); // Reset digit occurrences for a new calculation
 
       let intervalId = setInterval(function() {
-        if(i < iterations) {
+        if (i < iterations) {
             sum = sum.plus(calculatePiChudnovskySingleIteration(i));
             let pi = new Decimal(426880).times(new Decimal(10005).sqrt()).div(sum);
             let piString = pi.toString();
     
-            // Update and generate HTML with stability check
             let displayHtml = "";
             for (let j = 0; j < piString.length; j++) {
-                if (stabilityBuffer[j] === undefined) {
-                    // Initialize buffer entry with counted flag
-                    stabilityBuffer[j] = {digit: piString[j], count: 1, counted: false};
-                } else if (stabilityBuffer[j].digit === piString[j]) {
-                    stabilityBuffer[j].count++; // Increment count if digit is unchanged
-                } else {
-                    // Reset if digit has changed and reinitialize counted flag
-                    stabilityBuffer[j] = {digit: piString[j], count: 1, counted: false};
-                }
-    
-                let colorStyle = '';
-                if (stabilityBuffer[j].count > 9 && !stabilityBuffer[j].counted) { // Threshold for stability
-                    let digit = parseInt(piString[j], 10);
-                    if (!isNaN(digit)) { // Ensure it's a digit
-                        colorStyle = ` style="color: ${backgroundColors[digit]};"`;
-                        if (!stabilityBuffer[j].counted) {
+                let digit = parseInt(piString[j], 10);
+                if (!isNaN(digit)) { // Ensure it's a digit
+                    if (stabilityBuffer[j] === undefined) {
+                        // Initialize buffer entry with stability and color transition tracking
+                        stabilityBuffer[j] = { digit: piString[j], count: 1, counted: false, stable: false, transitioned: false };
+                    } else if (stabilityBuffer[j].digit === piString[j]) {
+                        stabilityBuffer[j].count++;
+                        if (stabilityBuffer[j].count > 9 && !stabilityBuffer[j].stable) {
+                            stabilityBuffer[j].stable = true;
                             digitOccurrences[digit]++;
-                            stabilityBuffer[j].counted = true; // Mark as counted to prevent recounting
+                        }
+                    } else {
+                        stabilityBuffer[j] = { digit: piString[j], count: 1, counted: false, stable: false, transitioned: false };
+                    }
+    
+                    let style = '';
+                    if (stabilityBuffer[j].stable) {
+                        if (!stabilityBuffer[j].transitioned) {
+                            // First iteration after becoming stable: use background color
+                            style = ` style="color: ${backgroundColors[digit]};"`;
+                            stabilityBuffer[j].transitioned = true; // Mark for transition to burlywood in next iteration
+                        } else {
+                            // Subsequent iterations: use burlywood
+                            style = ' class="stable-digit"';
                         }
                     }
+                    displayHtml += `<span${style}>${piString[j]}</span>`;
                 }
-                displayHtml += `<span${colorStyle}>${piString[j]}</span>`;
             }
     
             $('#result3').html(displayHtml);
-            // Update pie chart
-            piChart.data.datasets[0].data = digitOccurrences;
-            piChart.update();
+            piChart.data.datasets.forEach((dataset) => {
+            dataset.data = digitOccurrences;
             let totalDigits = digitOccurrences.reduce((acc, curr) => acc + curr, 0);
             $('#totalDigitsCalculated').html(`Total Digits Calculated: ${totalDigits}`);
-    
+      
             previousPi = piString; // Update the previous pi value for the next iteration
             i++;
+          });
+          piChart.update();
         } else {
             clearInterval(intervalId);
         }
+        i++;
     }, 100);
   });
 });
