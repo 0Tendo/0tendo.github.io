@@ -10,6 +10,10 @@
     <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
     <script defer src="js/project2.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+
+
+
   </head>
   <body class="">
     <main class="">
@@ -58,8 +62,9 @@
           <br>
           <a style="color:white" href="https://en.wikipedia.org/wiki/Chudnovsky_algorithm">Pi calculator using Chudnovsky algorithm for Pi</a>
           <div class="chart-container" style="position: relative; height:40vh; width:80vw">
-            <canvas id="piChart"></canvas>
-          </div>     
+              <canvas id="piChart"></canvas>
+          </div>
+          <div id="totalDigitsCalculated"></div>  
     </main>
   </body>
 </html>

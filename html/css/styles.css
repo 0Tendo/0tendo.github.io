@@ -446,3 +446,19 @@ html {
 .stable-digit {
     color: burlywood;
 }
+
+.color-legend {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.color-item {
+    width: 30px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    color: black;
+    margin: 0 5px;
+    font-size: 14px;
+}

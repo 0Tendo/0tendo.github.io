@@ -62,36 +62,42 @@ $(document).ready(function (){
   let digitOccurrences = Array(10).fill(0);
 
   // Initialize the pie chart
+  Chart.register(ChartDataLabels);
   let ctx = document.getElementById('piChart').getContext('2d');
   let piChart = new Chart(ctx, {
-      type: 'pie',
-      data: {
-          labels: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'],
-          datasets: [{
-              label: 'Digit Occurrences',
-              data: digitOccurrences,
-              backgroundColor: [
-                  'rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)',
-                  'rgba(255, 206, 86, 0.2)', 'rgba(75, 192, 192, 0.2)',
-                  'rgba(153, 102, 255, 0.2)', 'rgba(255, 159, 64, 0.2)',
-                  'rgba(199, 199, 199, 0.2)', 'rgba(83, 102, 255, 0.2)',
-                  'rgba(40, 159, 64, 0.2)', 'rgba(255,99,132,0.2)'
-              ],
-              borderColor: [
-                  'rgba(255, 99, 132, 1)', 'rgba(54, 162, 235, 1)',
-                  'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)',
-                  'rgba(153, 102, 255, 1)', 'rgba(255, 159, 64, 1)',
-                  'rgba(199, 199, 199, 1)', 'rgba(83, 102, 255, 1)',
-                  'rgba(40, 159, 64, 1)', 'rgba(255,99,132,1)'
-              ],
-              borderWidth: 1
-          }]
-      },
-      options: {
-          responsive: true,
-          maintainAspectRatio: false,
-      }
-  });
+    type: 'pie',
+    data: {
+        labels: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'],
+        datasets: [{
+            label: 'Digit Occurrences',
+            data: digitOccurrences,
+            backgroundColor: backgroundColors, // Ensure this matches the colors you want
+            borderColor: 'rgba(255, 255, 255, 1)', // Example border color
+            borderWidth: 1
+        }]
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+            datalabels: {
+                color: '#fff',
+                anchor: 'end',
+                align: 'start',
+                offset: -10,
+                font: {
+                    weight: 'bold',
+                    size: 16,
+                },
+                formatter: (value, ctx) => {
+                    // Return the value you want to display inside the pie slice
+                    // For example, the digit and its occurrences:
+                    return ctx.chart.data.labels[ctx.dataIndex] + ': ' + value;
+                },
+            }
+        }
+    }
+});
 
   $('#calculate3').on('click', function(){
       let iterations = $('#iterations3').val();
@@ -121,7 +127,7 @@ $(document).ready(function (){
                 }
     
                 let colorStyle = '';
-                if (stabilityBuffer[j].count > 5 && !stabilityBuffer[j].counted) { // Threshold for stability
+                if (stabilityBuffer[j].count > 9 && !stabilityBuffer[j].counted) { // Threshold for stability
                     let digit = parseInt(piString[j], 10);
                     if (!isNaN(digit)) { // Ensure it's a digit
                         colorStyle = ` style="color: ${backgroundColors[digit]};"`;
@@ -138,6 +144,8 @@ $(document).ready(function (){
             // Update pie chart
             piChart.data.datasets[0].data = digitOccurrences;
             piChart.update();
+            let totalDigits = digitOccurrences.reduce((acc, curr) => acc + curr, 0);
+            $('#totalDigitsCalculated').html(`Total Digits Calculated: ${totalDigits}`);
     
             previousPi = piString; // Update the previous pi value for the next iteration
             i++;
