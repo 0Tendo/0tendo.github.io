@@ -38,33 +38,50 @@
             <div class="colors"></div> -->
           </div>
           <br>
+          <h1 style="color:white">Iterative approaches to calculating π in real time</h2>
+          <br>
+          
           <div class="btn">
-            <input type="number" id="iterations1" placeholder="Number of iterations">
+            <h2 style="color:white">Leibniz Formula for Pi</h2>
+            <a style="color:white" href="https://en.wikipedia.org/wiki/Leibniz_formula_for_%CF%80">Leibniz formula for Pi (wikipedia)</a>
+            <p style="color:white">The Leibniz formula for π was discovered by Gottfried Wilhelm Leibniz in the 17th century, around 1673. This formula represents π as an infinite series: π = 4/1 - 4/3 + 4/5 - 4/7 + 4/9 - 4/11 + ...</p>
+            <p style="color:white"><strong>Limitations:</strong> The Leibniz formula converges very slowly, meaning it requires a large number of terms to achieve a relatively small number of accurate decimal places of π.</p>
+            <!--<input type="number" id="iterations1" placeholder="Number of iterations">-->
+            <br>
             <button type="button" name="calculate1" id="calculate1">Calculate Pi (Leibniz)</button>
           </div>
           <div style="color:white" class="result" id="result1"></div>
           <br>
-          <a style="color:white" href="https://en.wikipedia.org/wiki/Leibniz_formula_for_%CF%80">Pi calculator using Leibniz formula for Pi</a>
-          <br><br><br><br>
           <div class="btn">
-            <input type="number" id="iterations2" placeholder="Number of iterations">
+            <h2 style="color:white" >Nilakantha Series</h2>
+            <a style="color:white" href="https://en.wikipedia.org/wiki/Pi#Infinite_series">Nilakantha series for Pi (wikipedia)</a>
+            <p style="color:white" >Named after the Indian mathematician Nilakantha Somayaji in the 15th century. The Nilakantha series is an infinite series that converges to π. It starts with 3 and then continues: + 4/(2×3×4) - 4/(4×5×6) + 4/(6×7×8) - ...</p>
+            <p style="color:white" ><strong>Limitations:</strong> While it converges faster than the Leibniz formula, it still requires a significant number of iterations to achieve high precision.</p>
+            <!--<input type="number" id="iterations2" placeholder="Number of iterations">-->
+            <br>
             <button type="button" name="calculate2" id="calculate2">Calculate Pi (Nilakantha)</button>
           </div>
           <div style="color:white" class="result" id="result2"></div>
           <br>
-          <a style="color:white" href="https://en.wikipedia.org/wiki/Pi#Infinite_series">Pi calculator using Nilakantha series for Pi</a>
-          <br><br><br><br>
           <div class="btn">
-            <input type="number" id="iterations3" placeholder="Number of iterations">
+            <h2 style="color:white" >Chudnovsky Algorithm for Pi</h2>
+            <a style="color:white" href="https://en.wikipedia.org/wiki/Chudnovsky_algorithm">Chudnovsky algorithm for Pi (wikipedia)</a>
+            <p style="color:white" >The Chudnovsky algorithm was developed by brothers David and Gregory Chudnovsky in the late 20th century. This fast method for calculating π involves complex arithmetic and a quickly converging series, offering a highly efficient way to compute digits of π.</p>
+            <p style="color:white" ><strong>Limitations:</strong> Requires significant computational resources for high precision, making it complex for large-scale calculations.</p>
+            <p style="color:white" ><strong>Modifications for Web Implementation:</strong> I have implemented a simplified iterative version for this demonstration to showcase the algorithm's efficiency. In order to achieve an accurate value for pi I have added a 20% precision buffer.</p>
+            <p style="color:white" ><strong>How many digits of pi would you like to calculate?</strong> Please note that calculated values of pi using this method may be innaccurate below 100 digits and may take an extended period of time above 1000 digits. Enjoy!
+            <br>
             <button type="button" name="calculate3" id="calculate3">Calculate Pi (Chudnovsky)</button>
+            <input type="number" id="iterations3" placeholder="Number of Digits">
           </div>
           <div style="color:white" class="result" id="result3"></div>
           <br>
-          <a style="color:white" href="https://en.wikipedia.org/wiki/Chudnovsky_algorithm">Pi calculator using Chudnovsky algorithm for Pi</a>
-          <div class="chart-container" style="position: relative; height:40vh; width:80vw">
-              <canvas id="piChart"></canvas>
+          <div class="chart-and-tally-container">
+            <div class="chart-container" style="position: relative; height:40vh; width:80vw">
+                <canvas id="piChart"></canvas>
+            </div>
+            <div id="totalDigitsCalculated" class="tally"></div>
           </div>
-          <div id="totalDigitsCalculated"></div>  
     </main>
   </body>
 </html>

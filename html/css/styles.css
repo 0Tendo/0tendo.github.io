@@ -449,16 +449,38 @@ html {
 
 .color-legend {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    margin-bottom: 10px;
 }
 
 .color-item {
-    width: 30px;
-    height: 20px;
-    line-height: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 5px;
+}
+
+.number {
+    margin-bottom: 4px; /* Adjust spacing between the number and color box */
+    color: white; /* Or any color that suits your design */
+    font-size: 14px; /* Adjust according to your preference */
+}
+
+.color-box {
+    width: 20px; /* Adjust according to your preference */
+    height: 20px; /* Adjust according to your preference */
+    border: 1px solid #000; /* Optional: add border around color box */
+}
+
+.chart-and-tally-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+  
+.tally {
     text-align: center;
-    color: black;
-    margin: 0 5px;
-    font-size: 14px;
+    color: white; /* Adjust color as needed */
+    margin-top: 20px; /* Adjust spacing as needed */
 }
